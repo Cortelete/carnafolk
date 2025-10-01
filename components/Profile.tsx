@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const LOGO_1 = '/iniciais.png';
+const LOGO_1 = '/logo.png';
 const LOGO_2 = '/logohw.png';
 
 const Profile: React.FC = () => {
