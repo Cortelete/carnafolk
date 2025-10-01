@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const LOGO_1 = '/logo.png';
 const LOGO_2 = '/logohw.png';
@@ -13,7 +12,7 @@ const Profile: React.FC = () => {
   const isSettlingRef = useRef(false);
 
   // Animation loop function
-  const animate = () => {
+  const animate = useCallback(() => {
     if (isSettlingRef.current) {
       const targetRotation = Math.round(rotationRef.current / 180) * 180;
       const diff = targetRotation - rotationRef.current;
@@ -44,9 +43,9 @@ const Profile: React.FC = () => {
     }
     
     animationFrameRef.current = requestAnimationFrame(animate);
-  };
+  }, []);
 
-  const handleSpin = () => {
+  const handleSpin = useCallback(() => {
     isSettlingRef.current = false; // Interrupt settling if user clicks again
     velocityRef.current += 15; // Add a spin boost
     
@@ -54,7 +53,16 @@ const Profile: React.FC = () => {
     if (!animationFrameRef.current) {
        animationFrameRef.current = requestAnimationFrame(animate);
     }
-  };
+  }, [animate]);
+
+  // Automatic spin every 3 seconds
+  useEffect(() => {
+    const spinInterval = setInterval(() => {
+        handleSpin();
+    }, 3000);
+
+    return () => clearInterval(spinInterval);
+  }, [handleSpin]);
 
   // Cleanup animation frame on unmount
   useEffect(() => {
