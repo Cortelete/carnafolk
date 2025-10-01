@@ -1,41 +1,57 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 
 const LOGO_1 = '/logo.png';
 const LOGO_2 = '/logohw.png';
 
 const Profile: React.FC = () => {
-  const [currentLogo, setCurrentLogo] = useState(LOGO_1);
   const [rotation, setRotation] = useState(0);
+  
+  const rotationRef = useRef(0);
   const velocityRef = useRef(0);
   const animationFrameRef = useRef<number | null>(null);
+  const isSettlingRef = useRef(false);
 
-  // Effect for alternating logo every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentLogo((prevLogo) => (prevLogo === LOGO_1 ? LOGO_2 : LOGO_1));
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-  
   // Animation loop function
   const animate = () => {
-    velocityRef.current *= 0.97; // Apply friction
-    setRotation((prev) => prev + velocityRef.current);
-
-    if (Math.abs(velocityRef.current) > 0.1) {
-      animationFrameRef.current = requestAnimationFrame(animate);
+    if (isSettlingRef.current) {
+      const targetRotation = Math.round(rotationRef.current / 180) * 180;
+      const diff = targetRotation - rotationRef.current;
+      
+      // If we are close enough, snap to the target and stop the animation.
+      if (Math.abs(diff) < 0.1) {
+        rotationRef.current = targetRotation;
+        setRotation(targetRotation);
+        isSettlingRef.current = false;
+        animationFrameRef.current = null;
+        return;
+      }
+      
+      // Ease into the final position
+      rotationRef.current += diff * 0.1;
+      setRotation(rotationRef.current);
+      
     } else {
-      velocityRef.current = 0;
+      velocityRef.current *= 0.97; // Apply friction
+      rotationRef.current += velocityRef.current;
+      setRotation(rotationRef.current);
+
+      // If velocity is low, start the settling process
+      if (Math.abs(velocityRef.current) < 0.1) {
+        velocityRef.current = 0;
+        isSettlingRef.current = true;
+      }
     }
+    
+    animationFrameRef.current = requestAnimationFrame(animate);
   };
 
   const handleSpin = () => {
-    // Add a significant boost to velocity
-    velocityRef.current += 15;
+    isSettlingRef.current = false; // Interrupt settling if user clicks again
+    velocityRef.current += 15; // Add a spin boost
     
-    // Start animation loop if not already running
-    if (Math.abs(velocityRef.current) <= 15) {
+    // Start animation loop if it's not already running
+    if (!animationFrameRef.current) {
        animationFrameRef.current = requestAnimationFrame(animate);
     }
   };
@@ -51,17 +67,41 @@ const Profile: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="w-28 h-28 sm:w-32 sm:h-32 mb-4" style={{ perspective: '1000px' }}>
-        <img
-          src={currentLogo}
-          alt="Logo CarnaFolk"
-          className="w-full h-full rounded-full object-cover cursor-pointer"
-          onClick={handleSpin}
-          style={{
-            transform: `rotateY(${rotation}deg)`,
-            transition: 'transform 0s linear' // ensure smooth JS animation
-          }}
-        />
+      <div 
+        className="w-28 h-28 sm:w-32 sm:h-32 mb-4 cursor-pointer" 
+        style={{ perspective: '1000px' }}
+        onClick={handleSpin}
+        role="button"
+        aria-label="Girar o logo"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleSpin(); }}
+      >
+        <div 
+            className="relative w-full h-full"
+            style={{
+                transformStyle: 'preserve-3d',
+                transform: `rotateY(${rotation}deg)`,
+                transition: 'transform 0s linear'
+            }}
+        >
+            {/* Front Face */}
+            <img
+                src={LOGO_1}
+                alt="Logo CarnaFolk - Emblema do Evento"
+                className="absolute w-full h-full"
+                style={{ backfaceVisibility: 'hidden' }}
+            />
+            {/* Back Face */}
+            <img
+                src={LOGO_2}
+                alt="Logo CarnaFolk - Elmo Assombrado de Halloween"
+                className="absolute w-full h-full"
+                style={{
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                }}
+            />
+        </div>
       </div>
       <h1 className="text-3xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
         CarnaFolk

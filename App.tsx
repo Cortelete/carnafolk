@@ -3,13 +3,14 @@ import Profile from './components/Profile';
 import LinkButton from './components/LinkButton';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
-import { InfoIcon, InstagramIcon, TicketIcon, LocationIcon } from './components/icons';
+import { InfoIcon, InstagramIcon, TicketIcon, LocationIcon, SealedLetterIcon } from './components/icons';
 import WhatIsModalContent from './components/modals/WhatIsModalContent';
 import TicketModalContent from './components/modals/TicketModalContent';
 import LocationModalContent from './components/modals/LocationModalContent';
 import DeveloperCTAModalContent from './components/modals/DeveloperCTAModalContent';
+import ContactModalContent from './components/modals/ContactModalContent';
 
-type ModalType = 'what-is' | 'ticket' | 'location' | 'dev-cta' | null;
+type ModalType = 'what-is' | 'ticket' | 'location' | 'dev-cta' | 'contact' | null;
 
 const App: React.FC = () => {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
@@ -27,6 +28,8 @@ const App: React.FC = () => {
         return <LocationModalContent />;
       case 'dev-cta':
         return <DeveloperCTAModalContent onClose={closeModal} />;
+      case 'contact':
+        return <ContactModalContent onClose={closeModal} />;
       default:
         return null;
     }
@@ -42,6 +45,8 @@ const App: React.FC = () => {
         return 'O Mapa para o Covil';
       case 'dev-cta':
         return 'Invocar um Mago Digital?';
+      case 'contact':
+        return 'Enviar Mensagem à Guilda';
       default:
         return '';
     }
@@ -72,6 +77,11 @@ const App: React.FC = () => {
               icon={<LocationIcon />}
               text="O Mapa para o Covil"
               onClick={() => openModal('location')}
+            />
+             <LinkButton
+              icon={<SealedLetterIcon />}
+              text="Contatar a Guilda"
+              onClick={() => openModal('contact')}
             />
           </div>
         </div>
