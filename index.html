@@ -43,6 +43,36 @@
       .animate-pulse-subtle {
         animation: pulse-subtle 2s infinite ease-in-out;
       }
+      @keyframes fade-out-smoke {
+        from {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-15px) scale(1.1);
+          filter: blur(5px);
+        }
+      }
+      .animate-fade-out-smoke {
+        animation: fade-out-smoke 0.5s ease-out forwards;
+      }
+      @keyframes fade-in-smoke {
+        from {
+          opacity: 0;
+          transform: translateY(15px) scale(0.9);
+          filter: blur(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
+      }
+      .animate-fade-in-smoke {
+        animation: fade-in-smoke 0.5s ease-out forwards;
+      }
     </style>
   <script type="importmap">
 {

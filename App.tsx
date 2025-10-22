@@ -108,7 +108,6 @@ const App: React.FC = () => {
         isOpen={activeModal !== null} 
         onClose={closeModal} 
         title={getModalTitle()}
-        isClosableOnBackdrop={activeModal !== 'ticket'}
       >
         {renderModalContent()}
       </Modal>
