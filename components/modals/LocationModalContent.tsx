@@ -2,7 +2,11 @@ import React from 'react';
 
 const LocationModalContent: React.FC = () => {
   const address = "Rua Querência do Norte, nº315 - Olarias - Ponta Grossa - Rancho do Tuto";
-  const googleMapsUrl = "https://maps.app.goo.gl/T4j887zMvP6HnQp8A";
+  
+  // A more robust and universal URL for Google Maps that works well on both mobile and desktop.
+  // It directs users to a search result, which prompts to open the native app on mobile devices.
+  const searchQuery = "Rancho do Tuto, Rua Querência do Norte, 315, Ponta Grossa, PR";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery)}`;
 
   return (
     <div className="space-y-4">
