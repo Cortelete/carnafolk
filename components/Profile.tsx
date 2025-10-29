@@ -55,16 +55,6 @@ const Profile: React.FC = () => {
     }
   }, [animate]);
 
-  // Automatic spin every 3 seconds
-  useEffect(() => {
-    const spinInterval = setInterval(() => {
-        handleSpin();
-    }, 3000);
-
-    return () => clearInterval(spinInterval);
-  }, [handleSpin]);
-
-
   // Cleanup animation frame on unmount
   useEffect(() => {
     return () => {

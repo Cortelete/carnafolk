@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Profile from './components/Profile';
 import LinkButton from './components/LinkButton';
 import Footer from './components/Footer';
@@ -15,21 +15,6 @@ type ModalType = 'what-is' | 'ticket' | 'location' | 'dev-cta' | 'contact' | nul
 
 const App: React.FC = () => {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
-
-  useEffect(() => {
-    const faviconElement = document.getElementById('favicon') as HTMLLinkElement;
-    if (!faviconElement) return;
-
-    const favicons = ['/logo.png', '/logohw.png'];
-    let currentFaviconIndex = 0;
-
-    const faviconInterval = setInterval(() => {
-      currentFaviconIndex = (currentFaviconIndex + 1) % favicons.length;
-      faviconElement.href = favicons[currentFaviconIndex];
-    }, 3000);
-
-    return () => clearInterval(faviconInterval);
-  }, []);
 
   const openModal = (modal: ModalType) => setActiveModal(modal);
   const closeModal = () => setActiveModal(null);
