@@ -1,12 +1,10 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 const LOGO_1 = '/logo.png';
-const LOGO_2 = '/logohw.png';
 
 const Profile: React.FC = () => {
   const [rotation, setRotation] = useState(0);
-  const [title, setTitle] = useState('CarnaFolk');
-  const [titleAnimationClass, setTitleAnimationClass] = useState('');
   
   const rotationRef = useRef(0);
   const velocityRef = useRef(0);
@@ -66,20 +64,6 @@ const Profile: React.FC = () => {
     return () => clearInterval(spinInterval);
   }, [handleSpin]);
 
-  // Title alternation effect
-  useEffect(() => {
-    const titleInterval = setInterval(() => {
-      setTitleAnimationClass('animate-fade-out-smoke');
-
-      setTimeout(() => {
-        setTitle(currentTitle => currentTitle === 'CarnaFolk' ? 'FolkWeen' : 'CarnaFolk');
-        setTitleAnimationClass('animate-fade-in-smoke');
-      }, 500); // Duration of the fade-out animation
-    }, 3000);
-
-    return () => clearInterval(titleInterval);
-  }, []);
-
 
   // Cleanup animation frame on unmount
   useEffect(() => {
@@ -118,8 +102,8 @@ const Profile: React.FC = () => {
             />
             {/* Back Face */}
             <img
-                src={LOGO_2}
-                alt="Logo CarnaFolk - Elmo Assombrado de Halloween"
+                src={LOGO_1}
+                alt="Logo CarnaFolk - Emblema do Evento"
                 className="absolute w-full h-full"
                 style={{
                     backfaceVisibility: 'hidden',
@@ -128,11 +112,11 @@ const Profile: React.FC = () => {
             />
         </div>
       </div>
-      <h1 className={`text-3xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient ${titleAnimationClass}`}>
-        {title}
+      <h1 className="text-3xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
+        CarnaFolk
       </h1>
       <p className="text-base sm:text-lg font-semibold text-orange-300 mt-2 tracking-wide">
-        25 de Outubro • Rancho do Tuto
+        Fique atento aos presságios do próximo evento!
       </p>
       <p className="text-sm sm:text-base text-orange-200/80 mt-2 italic">
         "Onde as brumas se erguem e as canções dos bardos ecoam na noite de Samhain."

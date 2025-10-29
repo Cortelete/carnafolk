@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import Profile from './components/Profile';
 import LinkButton from './components/LinkButton';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
-import { InfoIcon, InstagramIcon, TicketIcon, LocationIcon, SealedLetterIcon } from './components/icons';
+import { InfoIcon, InstagramIcon, OracleIcon, LocationIcon, SealedLetterIcon, CameraIcon } from './components/icons';
 import WhatIsModalContent from './components/modals/WhatIsModalContent';
 import TicketModalContent from './components/modals/TicketModalContent';
 import LocationModalContent from './components/modals/LocationModalContent';
@@ -55,7 +56,7 @@ const App: React.FC = () => {
       case 'what-is':
         return 'O Pergaminho Ancestral';
       case 'ticket':
-        return 'Forjar Pergaminho de Entrada';
+        return 'O Oráculo Prepara Sua Visão';
       case 'location':
         return 'O Mapa para o Covil';
       case 'dev-cta':
@@ -74,6 +75,11 @@ const App: React.FC = () => {
           <Profile />
           <div className="flex flex-col space-y-4 mt-8">
             <LinkButton
+              icon={<CameraIcon />}
+              text="Crônicas Visuais do Conclave"
+              href="https://drive.google.com/drive/folders/12a4-zVKfK6nYJG4tMi6aLAfWq8t82yi4"
+            />
+            <LinkButton
               icon={<InfoIcon />}
               text="O Pergaminho Ancestral"
               onClick={() => openModal('what-is')}
@@ -84,8 +90,8 @@ const App: React.FC = () => {
               href="https://www.instagram.com/carnafolk.pg/"
             />
             <LinkButton
-              icon={<TicketIcon />}
-              text="Forjar Pergaminho de Entrada"
+              icon={<OracleIcon />}
+              text="O Oráculo do Futuro"
               onClick={() => openModal('ticket')}
             />
             <LinkButton
