@@ -54,11 +54,11 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-[#1a0c2e] via-[#0d0d0d] to-[#4a2507] min-h-screen text-white flex flex-col items-center justify-between p-4 pt-8 sm:p-6 animate-gradient font-sans">
-      <main className="w-full max-w-lg mx-auto flex flex-col items-center z-10">
-        <div className="w-full bg-black/40 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-orange-400/20 shadow-2xl shadow-purple-900/50">
+    <div className="bg-gradient-to-br from-[#1a0c2e] via-[#0d0d0d] to-[#4a2507] min-h-screen sm:min-h-screen h-[100dvh] sm:h-auto text-white flex flex-col items-center justify-center sm:justify-between p-2 pt-4 sm:p-6 animate-gradient font-sans overflow-hidden sm:overflow-visible">
+      <main className="w-full max-w-lg mx-auto flex flex-col items-center z-10 flex-grow justify-center">
+        <div className="w-full bg-black/40 backdrop-blur-lg rounded-2xl p-4 sm:p-8 border border-orange-400/20 shadow-2xl shadow-purple-900/50 flex flex-col justify-center">
           <Profile />
-          <div className="flex flex-col space-y-4 mt-8">
+          <div className="flex flex-col space-y-2 sm:space-y-4 mt-4 sm:mt-8">
             <LinkButton
               icon={<CameraIcon />}
               text="Museu de Fotos"
