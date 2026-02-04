@@ -61,7 +61,7 @@ const App: React.FC = () => {
           <div className="flex flex-col space-y-4 mt-8">
             <LinkButton
               icon={<CameraIcon />}
-              text="Galeria de Fotos"
+              text="Museu de Fotos"
               href="https://drive.google.com/drive/folders/12a4-zVKfK6nYJG4tMi6aLAfWq8t82yi4"
             />
             <LinkButton
@@ -76,12 +76,12 @@ const App: React.FC = () => {
             />
             <LinkButton
               icon={<OracleIcon />}
-              text="Ingressos e Lotes"
+              text="Comprar Pergaminho de Entrada"
               onClick={() => openModal('ticket')}
             />
             <LinkButton
               icon={<LocationIcon />}
-              text="Localização"
+              text="Mapa para a cerimônia"
               onClick={() => openModal('location')}
             />
              <LinkButton
