@@ -39,15 +39,15 @@ const App: React.FC = () => {
   const getModalTitle = () => {
      switch (activeModal) {
       case 'what-is':
-        return 'O Pergaminho Ancestral';
+        return 'Sobre o Evento';
       case 'ticket':
-        return 'O Oráculo Prepara Sua Visão';
+        return 'Ingressos e Valores';
       case 'location':
-        return 'O Mapa para o Covil';
+        return 'Localização';
       case 'dev-cta':
-        return 'Invocar um Mago Digital?';
+        return 'Crie seu Site Mágico';
       case 'contact':
-        return 'Enviar Mensagem à Guilda';
+        return 'Fale Conosco';
       default:
         return '';
     }
@@ -61,32 +61,32 @@ const App: React.FC = () => {
           <div className="flex flex-col space-y-4 mt-8">
             <LinkButton
               icon={<CameraIcon />}
-              text="Crônicas Visuais do Conclave"
+              text="Galeria de Fotos"
               href="https://drive.google.com/drive/folders/12a4-zVKfK6nYJG4tMi6aLAfWq8t82yi4"
             />
             <LinkButton
               icon={<InfoIcon />}
-              text="O Pergaminho Ancestral"
+              text="O que é o CarnaFolk?"
               onClick={() => openModal('what-is')}
             />
             <LinkButton
               icon={<InstagramIcon />}
-              text="Espelho CarnaFolk"
+              text="Nosso Instagram"
               href="https://www.instagram.com/carnafolk.pg/"
             />
             <LinkButton
               icon={<OracleIcon />}
-              text="O Oráculo do Futuro"
+              text="Ingressos e Lotes"
               onClick={() => openModal('ticket')}
             />
             <LinkButton
               icon={<LocationIcon />}
-              text="O Mapa para o Covil"
+              text="Localização"
               onClick={() => openModal('location')}
             />
              <LinkButton
               icon={<SealedLetterIcon />}
-              text="Contatar a Guilda"
+              text="Contato e Dúvidas"
               onClick={() => openModal('contact')}
             />
           </div>
