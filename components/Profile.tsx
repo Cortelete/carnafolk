@@ -67,7 +67,7 @@ const Profile: React.FC = () => {
   return (
     <div className="flex flex-col items-center text-center">
       <div 
-        className="w-28 h-28 sm:w-32 sm:h-32 mb-4 cursor-pointer" 
+        className="w-20 h-20 sm:w-32 sm:h-32 mb-2 sm:mb-4 cursor-pointer" 
         style={{ perspective: '1000px' }}
         onClick={handleSpin}
         role="button"
@@ -102,13 +102,13 @@ const Profile: React.FC = () => {
             />
         </div>
       </div>
-      <h1 className="text-3xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
+      <h1 className="text-2xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
         CarnaFolk
       </h1>
-      <p className="text-base sm:text-lg font-semibold text-orange-300 mt-2 tracking-wide uppercase border-b border-orange-500/30 pb-1">
+      <p className="text-sm sm:text-lg font-semibold text-orange-300 mt-1 sm:mt-2 tracking-wide uppercase border-b border-orange-500/30 pb-1">
         14 de Março • A partir das 14h
       </p>
-      <p className="text-sm sm:text-base text-orange-200/80 mt-2 italic">
+      <p className="hidden sm:block text-sm sm:text-base text-orange-200/80 mt-2 italic">
         "Onde as brumas se erguem e as canções dos bardos ecoam."
       </p>
     </div>
