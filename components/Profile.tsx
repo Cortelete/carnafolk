@@ -105,11 +105,11 @@ const Profile: React.FC = () => {
       <h1 className="text-3xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
         CarnaFolk
       </h1>
-      <p className="text-base sm:text-lg font-semibold text-orange-300 mt-2 tracking-wide">
-        Fique atento aos presságios do próximo evento!
+      <p className="text-base sm:text-lg font-semibold text-orange-300 mt-2 tracking-wide uppercase border-b border-orange-500/30 pb-1">
+        14 de Março • A partir das 14h
       </p>
       <p className="text-sm sm:text-base text-orange-200/80 mt-2 italic">
-        "Onde as brumas se erguem e as canções dos bardos ecoam na noite de Samhain."
+        "Onde as brumas se erguem e as canções dos bardos ecoam."
       </p>
     </div>
   );
