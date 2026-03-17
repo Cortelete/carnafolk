@@ -3,57 +3,42 @@ import React from 'react';
 import { LocationIcon } from '../icons';
 
 const LocationModalContent: React.FC = () => {
-  const address = "R. Querência do Norte, 315 - Olarias, Ponta Grossa - PR";
-  const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Rancho Do Tuto Ponta Grossa")}`;
-
   return (
-    <div className="space-y-4 text-center animate-fade-in-up">
+    <div className="space-y-6 text-center animate-fade-in-up">
        <div className="flex flex-col items-center space-y-2">
           <div className="w-14 h-14 text-orange-400 animate-pulse-subtle">
               <LocationIcon />
           </div>
           <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-yellow-400 to-orange-200 text-xl font-cinzel">
-            O Covil do Reencontro
+            O Covil Oculto
           </h3>
       </div>
       
-      <div className="text-orange-100/90 text-sm space-y-1">
-        <p className="italic text-orange-200/80">
-          "Onde as lendas nasceram, a história continua..."
+      <div className="p-6 rounded-lg border bg-black/40 border-orange-500/30 shadow-[0_0_15px_rgba(251,146,60,0.1)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-overlay"></div>
+        <p className="font-cinzel font-bold text-orange-300 text-lg mb-2 relative z-10">
+          O Mapa Está Sendo Desenhado
         </p>
-        <p>
-          O conclave retorna ao solo sagrado do <strong>Rancho do Tuto</strong>.
-        </p>
-        <p className="text-xs text-gray-400 mt-2 border-t border-white/10 pt-2">
-          {address}
+        <p className="text-sm text-gray-300 italic relative z-10">
+          "As brumas ainda cobrem o local do nosso próximo encontro. Apenas no momento certo as coordenadas serão reveladas aos dignos."
         </p>
       </div>
 
-      <div className="w-full h-48 sm:h-56 rounded-lg overflow-hidden border border-orange-500/30 shadow-lg shadow-black/50 relative group">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.773315550764!2d-50.1307882!3d-25.109533700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e81b05c26da77b%3A0x17a574193ad94a89!2sRancho%20Do%20Tuto!5e0!3m2!1spt-BR!2sbr!4v1770217739363!5m2!1spt-BR!2sbr" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Mapa do Rancho do Tuto"
-          className="grayscale hover:grayscale-0 transition-all duration-700"
-        ></iframe>
+      <div className="w-full h-32 sm:h-40 rounded-lg overflow-hidden border border-orange-500/30 shadow-lg shadow-black/50 relative group flex items-center justify-center bg-black/60">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-orange-900/40 opacity-50"></div>
+        <div className="text-orange-500/50 animate-pulse">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-16 h-16">
+             <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+           </svg>
+        </div>
+        <div className="absolute inset-0 backdrop-blur-[2px]"></div>
       </div>
 
-      <a 
-        href={mapLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group flex items-center justify-center w-full bg-gradient-to-r from-blue-700 to-indigo-600 font-bold text-white py-3 px-4 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mr-2 relative z-10">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
-        </svg>
-        <span className="relative z-10">Traçar Rota Real (GPS)</span>
-      </a>
+      <div className="pt-2">
+        <p className="text-xs text-orange-200/60 mt-3">
+          Aguarde as próximas convocações para descobrir o caminho.
+        </p>
+      </div>
     </div>
   );
 };
