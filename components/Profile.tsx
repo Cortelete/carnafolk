@@ -103,10 +103,10 @@ const Profile: React.FC = () => {
         </div>
       </div>
       <h1 className="text-2xl sm:text-4xl font-bold font-cinzel bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
-        CarnaFolk
+        Arraieval 2026
       </h1>
       <p className="text-sm sm:text-lg font-semibold text-orange-300 mt-1 sm:mt-2 tracking-wide uppercase border-b border-orange-500/30 pb-1">
-        14 de Março • A partir das 14h
+        20 de Junho • A partir das 14h
       </p>
       <p className="hidden sm:block text-sm sm:text-base text-orange-200/80 mt-2 italic">
         "Onde as brumas se erguem e as canções dos bardos ecoam."

@@ -24,10 +24,10 @@ const WhatIsModalContent: React.FC = () => {
             </div>
             <p className="font-bold text-orange-300 text-lg font-cinzel">Um Chamado Ancestral</p>
             <p className="text-orange-100/90 text-sm sm:text-base">
-              Um pergaminho, <strong className="text-orange-300">selado com cera de dragão</strong>, chegou às tuas mãos. Ele fala de um <strong className="text-orange-300">conclave raro</strong>, o CarnaFolk, onde os reinos se unem para celebrar lendas e forjar novas histórias.
+              Um pergaminho, <strong className="text-orange-300">selado com cera de dragão</strong>, chegou às tuas mãos. Ele fala de um <strong className="text-orange-300">conclave raro e festivo</strong>, o Arraieval, onde os reinos se unem para celebrar lendas, colheitas e forjar novas histórias.
             </p>
              <p className="text-orange-100/90 text-sm sm:text-base">
-              Estás pronto para desvendar seus segredos?
+              Estás pronto para desvendar seus segredos no dia 20 de Junho?
             </p>
             <button
               onClick={() => setStage('choice')}
@@ -43,7 +43,7 @@ const WhatIsModalContent: React.FC = () => {
           <div className="text-center space-y-4 animate-fade-in-up">
             <p className="font-bold text-orange-300 font-cinzel text-lg">A Encruzilhada do Destino</p>
             <p className="text-orange-100/90 text-sm">
-              Toda grande aventura começa com uma escolha. Qual caminho teu coração anseia trilhar nesta noite de festividades?
+              Toda grande aventura começa com uma escolha. Qual caminho teu coração anseia trilhar nesta noite de festividades de Arraieval?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <button
@@ -54,7 +54,7 @@ const WhatIsModalContent: React.FC = () => {
                   <LuteIcon />
                 </div>
                 <h3 className="font-bold font-cinzel text-orange-200">O Caminho do Bardo 🎶</h3>
-                <p className="text-xs text-orange-100/70">Seguir as melodias que movem a alma.</p>
+                <p className="text-xs text-orange-100/70">Seguir as melodias que movem a fogueira.</p>
               </button>
               <button
                 onClick={() => setStage('artisanPath')}
@@ -64,7 +64,7 @@ const WhatIsModalContent: React.FC = () => {
                   <HammerIcon />
                 </div>
                 <h3 className="font-bold font-cinzel text-orange-200">A Trilha do Artesão 🔨</h3>
-                <p className="text-xs text-orange-100/70">Descobrir os tesouros forjados à mão.</p>
+                <p className="text-xs text-orange-100/70">Descobrir os quitutes e tesouros locais.</p>
               </button>
             </div>
           </div>
@@ -80,16 +80,16 @@ const WhatIsModalContent: React.FC = () => {
               {isBard ? (
                 <>
                   <p>
-                    Escolheste bem. No CarnaFolk, a <strong className="text-orange-300">energia vibrante do folk</strong>, a <strong className="text-orange-300">fúria do rock</strong> e os ecos místicos da <SecretWord onClick={() => setShowBardSecret(!showBardSecret)}>música celta</SecretWord> se unem. Bardos contam sagas de batalhas, amores e magias ancestrais. Prepara teu espírito para dançar até o amanhecer!
+                    Escolheste bem. No Arraieval, a <strong className="text-orange-300">energia vibrante do folk</strong>, as <strong className="text-orange-300">tradições de fogueira</strong> e os ecos místicos da <SecretWord onClick={() => setShowBardSecret(!showBardSecret)}>música pagã</SecretWord> se unem. Bardos contam sagas ao redor do fogo. Prepara teu espírito para dançar a quadrilha medieval!
                   </p>
-                  {showBardSecret && <p className="text-xs italic text-purple-300/80 animate-fade-in-up p-2 bg-purple-900/20 rounded">📜 <span className="font-bold">Lore Oculto:</span> Dizem que as harpas e flautas têm o poder de acalmar os grifos das montanhas próximas!</p>}
+                  {showBardSecret && <p className="text-xs italic text-purple-300/80 animate-fade-in-up p-2 bg-purple-900/20 rounded">📜 <span className="font-bold">Lore Oculto:</span> Dizem que as harpas e flautas têm o poder de invocar espíritos das boas colheitas!</p>}
                 </>
               ) : (
                  <>
                   <p>
-                    Sábia escolha. O CarnaFolk é um grande mercado, onde ferreiros, <SecretWord onClick={() => setShowArtisanSecret(!showArtisanSecret)}>alquimistas</SecretWord> e artesãos expõem suas criações. Encontrarás <strong className="text-orange-300">artefatos únicos</strong>, iguarias que fortalecem o corpo e poções que alegram a alma.
+                    Sábia escolha. O Arraieval é um grande mercado e banquete, onde ferreiros, <SecretWord onClick={() => setShowArtisanSecret(!showArtisanSecret)}>alquimistas</SecretWord> e artesãos expõem suas criações. Encontrarás <strong className="text-orange-300">comidas típicas e artefatos únicos</strong> que fortalecem o corpo e poções que alegram a alma.
                   </p>
-                   {showArtisanSecret && <p className="text-xs italic text-purple-300/80 animate-fade-in-up p-2 bg-purple-900/20 rounded">📜 <span className="font-bold">Lore Oculto:</span> O hidromel servido é feito com uma receita secreta, passada de geração em geração por anões eremitas!</p>}
+                   {showArtisanSecret && <p className="text-xs italic text-purple-300/80 animate-fade-in-up p-2 bg-purple-900/20 rounded">📜 <span className="font-bold">Lore Oculto:</span> O quentão servido é feito com uma receita secreta, passada de geração em geração por anões eremitas!</p>}
                 </>
               )}
             </div>
@@ -108,10 +108,10 @@ const WhatIsModalContent: React.FC = () => {
             <h3 className="font-bold text-orange-300 font-cinzel text-lg">A União de Todas as Tribos</h3>
             <ThematicDivider />
             <p className="text-orange-100/90 text-sm">
-              Independente do caminho, todos se encontram na clareira principal. É onde a <strong className="text-orange-300">melodia do bardo</strong> inspira o <strong className="text-orange-300">martelo do artesão</strong>. Em meio às terras místicas dos Campos Gerais, o CarnaFolk une tradição, magia e bravura.
+              Independente do caminho, todos se encontram ao redor da grande fogueira. É onde a <strong className="text-orange-300">festa folclórica</strong> inspira a <strong className="text-orange-300">alegria do clã</strong>. Em meio às terras místicas dos Campos Gerais, o Arraieval une tradição junina, cultura folk e bravura.
             </p>
             <div className="font-bold text-base pt-2 bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
-              ⚔️ Agora que conheces a lenda, junta-te à nossa irmandade! ⚔️
+              🔥 Agora que conheces a lenda, junta-te à nossa irmandade no dia 20 de Junho! 🔥
             </div>
           </div>
         );

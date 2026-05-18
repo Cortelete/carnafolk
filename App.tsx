@@ -66,7 +66,7 @@ const App: React.FC = () => {
             />
             <LinkButton
               icon={<InfoIcon />}
-              text="O que é o CarnaFolk?"
+              text="O que é o Arraieval?"
               onClick={() => openModal('what-is')}
             />
             <LinkButton
@@ -81,7 +81,7 @@ const App: React.FC = () => {
             />
             <LinkButton
               icon={<LocationIcon />}
-              text="Mapa para a cerimônia"
+              text="Mapa para o Rancho"
               onClick={() => openModal('location')}
             />
              <LinkButton
